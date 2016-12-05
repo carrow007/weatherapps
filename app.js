@@ -26,6 +26,7 @@ var Weather = [];
 
         var weatherArray = response.forecast.simpleforecast.forecastday
           for(var i = 0; i < weatherArray.length; i++) {
+            var array = weatherArray.slice(0, 3);
             console.log(weatherArray.length)
 
           //creating the weather cards
@@ -34,28 +35,28 @@ var Weather = [];
 
 
           //the day of the week
-          var date = weatherArray[i].date.weekday;
+          var date = array[i].date.weekday + ':';
           var dateDiv = document.createElement('div');
           dateDiv.className = 'dateDiv'
           dateDiv.appendChild(document.createTextNode(date));
           weatherCards.appendChild(dateDiv)
 
           //appening the image of the condition
-          var icon = '<img class ="picture" src="' + weatherArray[i].icon_url + '"/>';
+          var icon = '<img class ="picture" src="' + array[i].icon_url + '"/>';
           var iconDiv = document.createElement('div');
           iconDiv.className = 'iconDiv';
           iconDiv.innerHTML = icon
           weatherCards.appendChild(iconDiv)
 
           //appending the conditions
-          var conditions = weatherArray[i].conditions;
+          var conditions = array[i].conditions;
           var conditionsDiv = document.createElement('div');
           conditionsDiv.className = 'conditionsDiv';
           conditionsDiv.appendChild(document.createTextNode(conditions));
           weatherCards.appendChild(conditionsDiv)
 
           //temperature
-          var temperature = weatherArray[i].high.fahrenheit + "/" + weatherArray[i].low.fahrenheit + " F"
+          var temperature = array[i].high.fahrenheit + "/" + array[i].low.fahrenheit + " F"
           var temperatureDiv = document.createElement('div');
           temperatureDiv.className = 'temperatureDiv';
           temperatureDiv.appendChild(document.createTextNode(temperature));

@@ -1,5 +1,6 @@
 #main {
 text-align: center;
+font-family: Helvetica;
 }
 
 #goButton {
@@ -18,11 +19,15 @@ text-align: center;
   width: 90px;
 }
 
+#mainWeather {
+  padding-top: 40px;
+}
+
 #weatherContainer {
   display: flex;
   flex-direction: start;
-  height:80px;
-  width: 150px;
+  height:90px;
+  width: 160px;
   border-color: 2px blue;
   padding: 25px;
 }
@@ -43,10 +48,17 @@ text-align: center;
 }
 
 .dateDiv {
-  border: yellow;
+  background-color: #34AAEF;
+  height: 30px;
+  width:160px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
 .iconDiv {
+  display: inline-flex;
 
 }
 
