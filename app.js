@@ -8,8 +8,62 @@ var url     = 'http://localhost:8080';
 var Weather = [];
 
   function displayContnet(response) {
+    var weatherTopContent = document.getElementById('weatherTopContainer')
+    var weatherContent = document.getElementById('weatherContainer')
+
+      //creating main card
+      var mainCards = document.createElement('div')
+      mainCards.className = 'mainCards'
+
+      //location of weather
+      var location = 'Weather Forecast for ' + response.location.city + ", " + response.location.state;
+      var locationDiv = document.createElement('div');
+      locationDiv.className = 'locationDiv'
+      locationDiv.appendChild(document.createTextNode(location));
+      mainCards.appendChild(locationDiv)
+
+      weatherTopContent.appendChild(mainCards)
+
+        var weatherArray = response.forecast.simpleforecast.forecastday
+          for(var i = 0; i < weatherArray.length; i++) {
+            console.log(weatherArray.length)
+
+          //creating the weather cards
+          var weatherCards = document.createElement('div')
+          weatherCards.className = 'weatherCards'
 
 
+          //the day of the week
+          var date = weatherArray[i].date.weekday;
+          var dateDiv = document.createElement('div');
+          dateDiv.className = 'dateDiv'
+          dateDiv.appendChild(document.createTextNode(date));
+          weatherCards.appendChild(dateDiv)
+
+          //appening the image of the condition
+          var icon = '<img class ="picture" src="' + weatherArray[i].icon_url + '"/>';
+          var iconDiv = document.createElement('div');
+          iconDiv.className = 'iconDiv';
+          iconDiv.innerHTML = icon
+          weatherCards.appendChild(iconDiv)
+
+          //appending the conditions
+          var conditions = weatherArray[i].conditions;
+          var conditionsDiv = document.createElement('div');
+          conditionsDiv.className = 'conditionsDiv';
+          conditionsDiv.appendChild(document.createTextNode(conditions));
+          weatherCards.appendChild(conditionsDiv)
+
+          //temperature
+          var temperature = weatherArray[i].high.fahrenheit + "/" + weatherArray[i].low.fahrenheit + " F"
+          var temperatureDiv = document.createElement('div');
+          temperatureDiv.className = 'temperatureDiv';
+          temperatureDiv.appendChild(document.createTextNode(temperature));
+          weatherCards.appendChild(temperatureDiv)
+
+          weatherContent.appendChild(weatherCards)
+
+    }
 }
 
 //// button

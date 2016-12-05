@@ -1,0 +1,59 @@
+#main {
+text-align: center;
+}
+
+#goButton {
+  color: black;
+  height: 40px;
+  width: 90px;
+}
+
+#zipInput {
+  height: 40px;
+  width: 90px;
+}
+
+#dateInput {
+  height: 40px;
+  width: 90px;
+}
+
+#weatherContainer {
+  display: flex;
+  flex-direction: start;
+  height:80px;
+  width: 150px;
+  border-color: 2px blue;
+  padding: 25px;
+}
+
+.mainCards {
+  border: red;
+
+}
+
+.locationDiv {
+  border: black;
+
+}
+
+.weatherCards {
+  padding: 25px;
+
+}
+
+.dateDiv {
+  border: yellow;
+}
+
+.iconDiv {
+
+}
+
+.conditionsDiv {
+
+}
+
+.temperatureDiv {
+
+}
