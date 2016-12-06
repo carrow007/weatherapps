@@ -104,7 +104,6 @@ var Weather = [];
 
 var endpointURL       = "http://api.wunderground.com/api/6ea7cf3bc006012f/forecast10day/geolookup/q/";
 var zipQuery          = zipInput.value + ".json";
-// var dateQuery         = "&date=" + dateInput.value + ".json";
 var fullQuery         = endpointURL + zipQuery;
 
   $.ajax({

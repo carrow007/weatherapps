@@ -38,6 +38,12 @@
   text-align: center
 }
 
+#errorContainer {
+  font-family: Helvitica;
+  font-size: 25px;
+  color: bold black;
+}
+
 .mainCards {
   border: red;
 
