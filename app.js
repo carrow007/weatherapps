@@ -4,7 +4,7 @@ var goButton      = document.getElementById('goButton');
 var zipInput      = document.getElementById('zipInput');
 var restartButton = document.getElementById('restartButton')
 
-var url     = 'https://carrow007.github.io/weatherapps/';
+var url     = 'http://carrow007.github.io/weatherapps/';
 var Weather = [];
 
   function displayContnet(response) {
