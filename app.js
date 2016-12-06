@@ -25,6 +25,10 @@ var Weather = [];
 
       weatherTopContent.appendChild(mainCards)
 
+
+
+
+
         var weatherArray = response.forecast.simpleforecast.forecastday
           for(var i = 0; i < weatherArray.length; i++) {
             var array = weatherArray.slice(0, 3);
@@ -63,10 +67,30 @@ var Weather = [];
           temperatureDiv.appendChild(document.createTextNode(temperature));
           weatherCards.appendChild(temperatureDiv)
 
+
+
+
           weatherContent.appendChild(weatherCards)
 
     }
+
+
 }
+
+
+  function displayError(response) {
+
+      var errorContent = document.getElementById('errorContainer')
+
+        var error = response.response.error.description;
+        var errorDiv = document.createElement('div');
+        errorDiv.className = 'errorDiv'
+        errorDiv.appendChild(document.createTextNode(error));
+        errorContent.appendChild(errorDiv)
+
+  }
+
+
   // reload the page
 
   document.getElementById('restartButton').addEventListener('click', function () {
@@ -84,12 +108,22 @@ var zipQuery          = zipInput.value + ".json";
 var fullQuery         = endpointURL + zipQuery;
 
   $.ajax({
-    url: fullQuery
+    url: fullQuery,
+    callback: function(error, response, body) {
+      console.log(body);
+      response.send(body);
+    }
+
   }).done(function(response) {
     console.log("response: ", response);
-      displayContnet(response)
+      if (response.forecast){
+      displayContnet(response);
+    } else {
+      displayError(response);
+          }
 
       })
 
     })
+
   }
