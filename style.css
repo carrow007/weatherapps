@@ -1,9 +1,15 @@
 #main {
-text-align: center;
-font-family: Helvetica;
+  text-align: center;
+  font-family: Helvetica;
 }
 
 #goButton {
+  color: black;
+  height: 40px;
+  width: 90px;
+}
+
+#restartButton {
   color: black;
   height: 40px;
   width: 90px;
@@ -24,12 +30,12 @@ font-family: Helvetica;
 }
 
 #weatherContainer {
-  display: flex;
-  flex-direction: start;
-  height:90px;
-  width: 160px;
+  display: inline-flex;
+  height:100px;
+  width: 600px;
   border-color: 2px blue;
   padding: 25px;
+  text-align: center
 }
 
 .mainCards {
@@ -38,12 +44,14 @@ font-family: Helvetica;
 }
 
 .locationDiv {
-  border: black;
+  color: grey;
+  font-size: 20px;
 
 }
 
 .weatherCards {
-  padding: 25px;
+  padding: 10px;
+  width: 350px;
 
 }
 
@@ -55,10 +63,11 @@ font-family: Helvetica;
   display: flex;
   align-items: center;
   justify-content: left;
+  padding: 4px;
 }
 
 .iconDiv {
-  display: inline-flex;
+  display: inline-grid;
 
 }
 
@@ -67,5 +76,5 @@ font-family: Helvetica;
 }
 
 .temperatureDiv {
-
+  color: \xB0;
 }

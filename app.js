@@ -1,13 +1,14 @@
 window.onload = function () {
 
-var goButton  = document.getElementById('goButton');
-var zipInput  = document.getElementById('zipInput');
-var dateInput = document.getElementById('dateInput');
+var goButton      = document.getElementById('goButton');
+var zipInput      = document.getElementById('zipInput');
+var restartButton = document.getElementById('restartButton')
 
 var url     = 'http://localhost:8080';
 var Weather = [];
 
   function displayContnet(response) {
+
     var weatherTopContent = document.getElementById('weatherTopContainer')
     var weatherContent = document.getElementById('weatherContainer')
 
@@ -56,7 +57,7 @@ var Weather = [];
           weatherCards.appendChild(conditionsDiv)
 
           //temperature
-          var temperature = array[i].high.fahrenheit + "/" + array[i].low.fahrenheit + " F"
+          var temperature =  array[i].high.fahrenheit + "/" + array[i].low.fahrenheit + " F"
           var temperatureDiv = document.createElement('div');
           temperatureDiv.className = 'temperatureDiv';
           temperatureDiv.appendChild(document.createTextNode(temperature));
@@ -66,23 +67,29 @@ var Weather = [];
 
     }
 }
+  // reload the page
 
-//// button
+  document.getElementById('restartButton').addEventListener('click', function () {
+    location.reload();
+  })
+
+  // event listener
   document.getElementById('goButton').addEventListener('click', function () {
     event.preventDefault();
 
 
 var endpointURL       = "http://api.wunderground.com/api/6ea7cf3bc006012f/forecast10day/geolookup/q/";
-var zipQuery          = zipInput.value;
-var dateQuery         = "&date=" + dateInput.value + ".json";
-var fullQuery         = endpointURL + zipQuery + dateQuery;
+var zipQuery          = zipInput.value + ".json";
+// var dateQuery         = "&date=" + dateInput.value + ".json";
+var fullQuery         = endpointURL + zipQuery;
 
   $.ajax({
     url: fullQuery
   }).done(function(response) {
     console.log("response: ", response);
-    displayContnet(response)
-  })
+      displayContnet(response)
 
-  })
-}
+      })
+
+    })
+  }
