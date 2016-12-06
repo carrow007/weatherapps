@@ -4,7 +4,7 @@ var goButton      = document.getElementById('goButton');
 var zipInput      = document.getElementById('zipInput');
 var restartButton = document.getElementById('restartButton')
 
-var url     = 'http://localhost:8080';
+var url     = 'https://localhost:8080';
 var Weather = [];
 
   function displayContnet(response) {
@@ -102,7 +102,7 @@ var Weather = [];
     event.preventDefault();
 
 
-var endpointURL       = "http://api.wunderground.com/api/6ea7cf3bc006012f/forecast10day/geolookup/q/";
+var endpointURL       = "https://api.wunderground.com/api/6ea7cf3bc006012f/forecast10day/geolookup/q/";
 var zipQuery          = zipInput.value + ".json";
 var fullQuery         = endpointURL + zipQuery;
 
