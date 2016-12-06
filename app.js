@@ -7,7 +7,7 @@ var restartButton = document.getElementById('restartButton')
 var url     = 'https://localhost:8080';
 var Weather = [];
 
-  function displayContnet(response) {
+  function displayContent(response) {
 
     var weatherTopContent = document.getElementById('weatherTopContainer')
     var weatherContent = document.getElementById('weatherContainer')
@@ -116,7 +116,7 @@ var fullQuery         = endpointURL + zipQuery;
   }).done(function(response) {
     console.log("response: ", response);
       if (response.forecast){
-      displayContnet(response);
+      displayContent(response);
     } else {
       displayError(response);
           }
